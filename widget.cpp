@@ -10,12 +10,12 @@ Widget::Widget(QWidget *parent)
     QObject::connect(&SSL_socket_, &QAbstractSocket::connected, this, &Widget::doConnected);
     QObject::connect(&SSL_socket_, &QAbstractSocket::disconnected, this, &Widget::doDisconnected);
     QObject::connect(&SSL_socket_, &QAbstractSocket::readyRead, this, &Widget::doReadyRead);
-    QObject::connect(&SSL_socket_, &QSslSocket::stateChanged, this, &Widget::updateUI);
+    QObject::connect(&SSL_socket_, &QAbstractSocket::stateChanged, this, &Widget::updateUI);
 
     QObject::connect(&TCP_socket_, &QAbstractSocket::connected, this, &Widget::doConnected);
     QObject::connect(&TCP_socket_, &QAbstractSocket::disconnected, this, &Widget::doDisconnected);
     QObject::connect(&TCP_socket_, &QAbstractSocket::readyRead, this, &Widget::doReadyRead);
-    QObject::connect(&TCP_socket_, &QTcpSocket::stateChanged, this, &Widget::updateUI);
+    QObject::connect(&TCP_socket_, &QAbstractSocket::stateChanged, this, &Widget::updateUI);
 
 }
 
